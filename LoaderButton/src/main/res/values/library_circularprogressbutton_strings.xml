@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="define_loaderbutton">LoaderButton</string>
+    <string name="library_loaderbutton_author">Muhammad Sadiq Siddiqui</string>
+    <string name="library_loaderbutton_libraryName">Dot Loader Button</string>
+    <string name="library_loaderbutton_libraryDescription">Android Button which show loading three dots with animation</string>
+    <string name="library_loaderbutton_libraryVersion">1.1.0</string>
+    <string name="library_loaderbutton_licenseId">mit</string>
+    <string name="library_loaderbutton_isOpenSource">true</string>
+    <string name="library_loaderbutton_repositoryLink">https://github.com/dmytrodanylyk/dotloaderbutton</string>
+</resources>

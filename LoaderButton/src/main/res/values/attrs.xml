@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="DotLoaderButton">
+        <attr name="title" format="string" />
+        <attr name="disabledBackground" format="reference" />
+        <attr name="enabledBackground" format="reference" />
+    </declare-styleable>
+</resources>
