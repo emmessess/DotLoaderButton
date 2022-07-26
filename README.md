@@ -27,10 +27,13 @@ implementation 'com.github.emmessess:DotLoaderButton:0.1.4'
             app:title="Next" />
             
 # In Activity or Fragment
+
 Declare Variabe 
+
 lateinit var buttonLogin: DotLoaderButton
 
 Initialize
+
 buttonLogin = view.findViewById(R.id.buttonLogin)
 
 Show Loader
