@@ -24,7 +24,7 @@ implementation 'com.github.emmessess:DotLoaderButton:0.1.4'
             android:textSize="15sp"<br />
             app:disabledBackground="@drawable/button_unselected_bg"<br />
             app:enabledBackground="@drawable/button_selected_bg"<br />
-            app:title="Next" /><br />
+            app:title="Login" /><br />
             
 # In Activity or Fragment
 
