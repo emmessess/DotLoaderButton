@@ -7,37 +7,37 @@ implementation 'com.github.emmessess:DotLoaderButton:0.1.4'
 
 # In XML File add button as
 
- <com.emmessess.loaderbutton.DotLoaderButton
-            android:id="@+id/buttonLogin"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_below="@id/llAlreadyHaveAccount"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:alpha=".5"
-            android:clickable="true"
-            android:fontFamily="@font/nunito_semibold"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="15sp"
-            app:disabledBackground="@drawable/button_unselected_bg"
-            app:enabledBackground="@drawable/button_selected_bg"
-            app:title="Next" />
+ <com.emmessess.loaderbutton.DotLoaderButton<br />
+            android:id="@+id/buttonLogin"<br />
+            android:layout_width="match_parent"<br />
+            android:layout_height="50dp"<br />
+            android:layout_below="@id/llAlreadyHaveAccount"<br />
+            android:layout_centerHorizontal="true"<br />
+            android:layout_marginTop="20dp"<br />
+            android:alpha=".5"<br />
+            android:clickable="true"<br />
+            android:fontFamily="@font/nunito_semibold"<br />
+            android:paddingTop="10dp"<br />
+            android:paddingBottom="10dp"<br />
+            android:textAllCaps="false"<br />
+            android:textColor="@color/white"<br />
+            android:textSize="15sp"<br />
+            app:disabledBackground="@drawable/button_unselected_bg"<br />
+            app:enabledBackground="@drawable/button_selected_bg"<br />
+            app:title="Next" /><br />
             
 # In Activity or Fragment
 
-Declare Variabe 
+Declare Variabe <br />
 
-lateinit var buttonLogin: DotLoaderButton
+lateinit var buttonLogin: DotLoaderButton <br />
 
-Initialize
+Initialize<br />
 
-buttonLogin = view.findViewById(R.id.buttonLogin)
+buttonLogin = view.findViewById(R.id.buttonLogin)<br />
 
-Show Loader
-buttonLogin.showLoading()
+Show Loader<br />
+buttonLogin.showLoading()<br />
 
 Hide Loader
 buttonLogin.hideLoading()
