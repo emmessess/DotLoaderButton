@@ -39,7 +39,7 @@ buttonLogin = view.findViewById(R.id.buttonLogin)<br />
 Show Loader<br />
 buttonLogin.showLoading()<br />
 
-Hide Loader
+Hide Loader<br />
 buttonLogin.hideLoading()
 
 
