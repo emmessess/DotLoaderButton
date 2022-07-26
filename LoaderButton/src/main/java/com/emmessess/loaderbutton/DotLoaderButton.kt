@@ -1,8 +1,8 @@
 package com.emmessess.loaderbutton
 
 import android.content.Context
+import android.graphics.Typeface
 import android.util.AttributeSet
-import android.view.Gravity
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
@@ -13,7 +13,7 @@ class DotLoaderButton : RelativeLayout {
     private var title : String = ""
 
     lateinit var buttonLabel : TextView
-    lateinit var loaderView: AMDotsView
+    lateinit var loaderView: DotsView
 
     lateinit var linearLayout: LinearLayout
     constructor(context: Context) : super(context) {
@@ -39,7 +39,7 @@ class DotLoaderButton : RelativeLayout {
         this.buttonLabel.text = "Button Label"
         this.buttonLabel.textAlignment = TEXT_ALIGNMENT_CENTER
 
-        this.loaderView = AMDotsView(context)
+        this.loaderView = DotsView(context)
         this.loaderView.animationType = AnimationType.SCALE
 //        this.loaderView.layoutParams = LayoutParams(100,30)
 
@@ -62,8 +62,6 @@ class DotLoaderButton : RelativeLayout {
         linearLayout.addView(loaderView)
         this.addView(linearLayout)
         setupAttributes(attrs)
-
-        addCircles()
     }
 
     private fun setupAttributes(attrs: AttributeSet?) {
@@ -71,28 +69,13 @@ class DotLoaderButton : RelativeLayout {
         title = typedArray.getString(R.styleable.DotLoaderButton_title) ?: "No Title"
         disabledBackground  = typedArray.getResourceId(R.styleable.DotLoaderButton_disabledBackground,-1)
         enabledBackground  = typedArray.getResourceId(R.styleable.DotLoaderButton_enabledBackground,-1)
+        val fontName = typedArray.getString(R.styleable.DotLoaderButton_fontName)
+        val textSize = typedArray.getFloat(R.styleable.DotLoaderButton_textSize,12f)
+        val textColor = typedArray.getColor(R.styleable.DotLoaderButton_textColor,context.resources.getColor(R.color.white))
+        this.buttonLabel.typeface = Typeface.create(fontName, Typeface.NORMAL)
+        this.buttonLabel.textSize = textSize
+        this.buttonLabel.setTextColor(textColor)
         buttonLabel.text = title
-//        spacing = typedArray.getInt(R.styleable.AMDots_spacing, 10)
-//        animationDuration = typedArray.getInt(R.styleable.AMDots_animationDuration, 400)
-//        aheadTime = typedArray.getInt(R.styleable.AMDots_aheadTime, 200)
-//        hidesWhenStopped = typedArray.getBoolean(R.styleable.AMDots_hidesWhenStopped, true)
-//
-//        val type = typedArray.getInt(R.styleable.AMDots_animationType, 0)
-//        animationType = AnimationType.values()[type]
-//
-//        val stringColors: Array<CharSequence>? = typedArray.getTextArray(R.styleable.AMDots_colors)
-//        var intColors: List<Int>? = null
-//
-//        if (stringColors != null && stringColors.isNotEmpty()) {
-//            intColors = stringColors.map { Color.parseColor(it.toString()) }
-//        }
-//
-//        colors = intColors ?: defaultsColors
-//
-//        weightSum = colors.size.toFloat()
-//
-//        gravity = Gravity.CENTER_VERTICAL
-
         hideLoading()
     }
 
@@ -100,8 +83,8 @@ class DotLoaderButton : RelativeLayout {
         this.loaderView.visibility = VISIBLE
         this.isEnabled = false
         when(disabledBackground){
-            -1 ->  this.background = context.getDrawable(android.R.color.transparent)
-            else -> this.background = context.getDrawable(disabledBackground)
+            -1 ->  this.background = context.resources.getDrawable(android.R.color.transparent)
+            else -> this.background = context.resources.getDrawable(disabledBackground)
         }
     }
 
@@ -109,23 +92,8 @@ class DotLoaderButton : RelativeLayout {
         this.isEnabled = true
         this.loaderView.visibility = GONE
         when(enabledBackground){
-            -1 ->  this.background = context.getDrawable(android.R.color.transparent)
-            else -> this.background = context.getDrawable(enabledBackground)
+            -1 ->  this.background = context.resources.getDrawable(android.R.color.transparent)
+            else -> this.background = context.resources.getDrawable(enabledBackground)
         }
     }
-
-    private fun addCircles() {
-//        colors.forEachIndexed { _, color ->
-//            val view = DotView(context, color)
-//            view.layoutParams =
-//                LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f)
-//            val layoutParams = view.layoutParams as LinearLayout.LayoutParams
-//            layoutParams.setMargins(spacing, spacing, spacing, spacing)
-//            layoutParams.gravity = Gravity.CENTER_VERTICAL
-//            addView(view)
-//        }
-//
-//        start()
-    }
-
 }

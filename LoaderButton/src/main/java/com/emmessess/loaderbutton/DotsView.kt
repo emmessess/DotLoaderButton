@@ -12,7 +12,7 @@ import android.view.Gravity
 import android.view.animation.AccelerateDecelerateInterpolator
 import java.util.Timer
 import kotlin.concurrent.scheduleAtFixedRate
-class AMDotsView : LinearLayout {
+class DotsView : LinearLayout {
 
     //region Private variables
     private var defaultsColors = listOf(
@@ -162,7 +162,7 @@ class AMDotsView : LinearLayout {
 
         timer = Timer()
         timer?.scheduleAtFixedRate(0, (animationDuration - aheadTime).toLong()) {
-            this@AMDotsView.startAnimation()
+            this@DotsView.startAnimation()
         }
     }
 
