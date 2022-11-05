@@ -105,4 +105,13 @@ class DotLoaderButton : RelativeLayout {
             else -> this.background = context.resources.getDrawable(disabledBackground)
         }
     }
+
+    fun enableButton(){
+        this.isEnabled = true
+        this.loaderView.visibility = GONE
+        when(enabledBackground){
+            -1 ->  this.background = context.resources.getDrawable(android.R.color.transparent)
+            else -> this.background = context.resources.getDrawable(enabledBackground)
+        }
+    }
 }
