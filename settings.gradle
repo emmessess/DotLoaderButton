@@ -5,6 +5,20 @@ pluginManagement {
         mavenCentral()
         maven { url 'https://jitpack.io' }
     }
+/*
+    buildscript {
+        ext.kotlin_version = "1.4.20"
+        ext.nav_version = "2.3.5"
+        repositories {
+            google()
+            jcenter()
+            maven { url "https://jitpack.io" }
+        }
+        dependencies {
+            classpath "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.4"
+
+        }
+    }*/
 }
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)

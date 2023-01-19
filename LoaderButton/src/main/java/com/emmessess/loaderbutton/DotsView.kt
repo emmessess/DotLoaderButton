@@ -10,8 +10,12 @@ import android.view.View
 import android.widget.LinearLayout
 import android.view.Gravity
 import android.view.animation.AccelerateDecelerateInterpolator
+import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.flow
 import java.util.Timer
 import kotlin.concurrent.scheduleAtFixedRate
+import kotlin.coroutines.CoroutineContext
+
 class DotsView : LinearLayout {
 
     //region Private variables
@@ -22,7 +26,7 @@ class DotsView : LinearLayout {
     )
     private var currentViewIndex = 0
     private var dotSize = 0
-    private var timer: Timer? = null
+    private var timer: Job? = null
     private var interpolator = AccelerateDecelerateInterpolator()
     private lateinit var colors: List<Int>
     private var spacing = 4
@@ -154,15 +158,21 @@ class DotsView : LinearLayout {
     //region Public Methods (Stop/Start)
     /** Starts the animation.  */
     fun start() {
-
         if (colors.isEmpty()) {
             return
         }
         visibility = View.VISIBLE
 
-        timer = Timer()
-        timer?.scheduleAtFixedRate(0, (animationDuration - aheadTime).toLong()) {
+         timer = tickerFlow((animationDuration - aheadTime).toLong()){
             this@DotsView.startAnimation()
+        }
+        timer?.cancel()
+    }
+
+    fun tickerFlow(period: Long, callback : () -> Unit) = CoroutineScope(Dispatchers.IO).launch {
+        while (true) {
+            callback.invoke()
+            delay(period)
         }
     }
 
